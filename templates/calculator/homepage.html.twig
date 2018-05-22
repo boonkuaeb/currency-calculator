@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <span id="exchange_text_src"></span>
+        </div>
+        <div class="row">
+            <h3 id="exchange_text_tgt"></h3>
+        </div>
+
+
+        <div class="row">
+            <div class="alert alert-secondary col-sm-12" style="display: none;" role="alert">
+
+                <p id="alert_txt"></p>
+
+            </div>
+
+            <div class="col-xs-6">
+                <div class="row">
+                    <input type="hidden" class="exchange_url" id="exchange_url" value="{{ path('exchange') }}">
+                    <div class="col-xs-12 col-sm-6">
+                        <input class="form-control" id="js-currency-src-input" type="text" value="1"/>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <select rel="{{ path('exchange') }}" class="form-control bg_grey" id="js-currency-src-selector">
+                            <option selected value="USD">US Dollar</option>
+                            <option value="EUR">Euro</option>
+                            <option value="AUD">Australian Dollar</option>
+                            <option value="BTC">Bitcoin</option>
+                        </select>
+                        <input type="hidden" id="js-currency-src-selector-history">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 10px;">
+            <div class="col-xs-6">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <input id="js-currency-tgt-input" class="form-control" type="text"/>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <select rel="{{ path('exchange') }}" class="form-control bg_grey" id="js-currency-tgt-selector">
+                            <option value="USD">US Dollar</option>
+                            <option value="EUR" selected>Euro</option>
+                            <option value="AUD">Australian Dollar</option>
+                            <option value="BTC">Bitcoin</option>
+                        </select>
+                        <input type="hidden" id="js-currency-tgt-selector-history">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/calculator_homepage.js') }}"></script>
+{% endblock %}
