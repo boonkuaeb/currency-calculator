@@ -29,7 +29,12 @@ class CalculatorController extends AbstractController
      */
     public function homepage()
     {
-        return $this->render("calculator/homepage.html.twig", []);
+        $data = [
+            'currencyList' => $this->FXRate->getCurrencies(),
+            'default_currency_src' => "USD",
+            'default_currency_tgt' => "ERU"
+        ];
+        return $this->render("calculator/homepage.html.twig", $data);
     }
 
     /**

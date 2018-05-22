@@ -53,9 +53,7 @@ $(document).ready(function () {
 
 
     $(function () {
-
-
-        $("select#js-currency-src-selector").change();
+        $('#js-currency-tgt-selector').trigger('change');
     });
 
 });

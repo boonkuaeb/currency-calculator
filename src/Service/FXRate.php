@@ -20,6 +20,16 @@ class FXRate
         $this->apiKey=$apiKey;
     }
 
+    public function getCurrencies()
+    {
+        return [
+            ["key"=>"USD","text"=> "US Dollar"],
+            ["key"=>"EUR" , "text" => "Euro"],
+            ["key"=>"AUD" , "text" => "Australian Dollar"],
+            ["key"=>"BTC" , "text" => "Bitcoin"]
+        ];
+    }
+
     public function makeExchange($from_currency, $to_currency, $quantity, LoggerInterface $logger)
     {
         $client = new Client();
