@@ -19,12 +19,12 @@
 
             <div class="col-xs-6">
                 <div class="row">
-                    <input type="hidden" class="exchange_url" id="exchange_url" value="{{ path('exchange') }}">
+                    <input type="hidden" class="exchange_url" id="exchange_url" value="{{ api_url }}">
                     <div class="col-xs-12 col-sm-6">
                         <input class="form-control" id="js-currency-src-input" type="text" value="1"/>
                     </div>
                     <div class="col-xs-12 col-sm-6">
-                        <select rel="{{ path('exchange') }}" class="form-control bg_grey" id="js-currency-src-selector">
+                        <select rel="{{ api_url }}" class="form-control bg_grey" id="js-currency-src-selector">
                             <option selected value="USD">US Dollar</option>
                             <option value="EUR">Euro</option>
                             <option value="AUD">Australian Dollar</option>
@@ -41,7 +41,7 @@
                         <input id="js-currency-tgt-input" class="form-control" type="text"/>
                     </div>
                     <div class="col-xs-12 col-sm-6">
-                        <select rel="{{ path('exchange') }}" class="form-control bg_grey" id="js-currency-tgt-selector">
+                        <select rel="{{ api_url }}" class="form-control bg_grey" id="js-currency-tgt-selector">
                             <option value="USD">US Dollar</option>
                             <option value="EUR" selected>Euro</option>
                             <option value="AUD">Australian Dollar</option>

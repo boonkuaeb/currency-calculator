@@ -1,0 +1,3 @@
+_bk_fx_rate:
+    resource: '@BKFxRateBundle/Resources/config/routes.xml'
+    prefix: /api/fxrate/
