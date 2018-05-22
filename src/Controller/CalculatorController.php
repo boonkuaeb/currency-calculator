@@ -2,8 +2,7 @@
 
 namespace App\Controller;
 
-
-use GuzzleHttp\Client;
+use App\Service\FXRate;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -12,6 +11,19 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CalculatorController extends AbstractController
 {
+
+    private $FXRate;
+
+    /**
+     * CalculatorController constructor.
+     * @param $FXRate
+     */
+    public function __construct(FXRate $FXRate)
+    {
+        $this->FXRate = $FXRate;
+    }
+
+
     /**
      * @Route("/",name="app_homepage")
      */
@@ -28,36 +40,10 @@ class CalculatorController extends AbstractController
         $from_currency = $request->get('from_currency');
         $to_currency = $request->get('to_currency');
         $quantity = $request->get('quantity');
-
-        $data = $this->makeExchange($from_currency, $to_currency, $quantity, $logger);
+        $data = $this->FXRate->makeExchange($from_currency, $to_currency, $quantity, $logger);
         return new JsonResponse($data);
     }
 
-    private function makeExchange($from_currency, $to_currency, $quantity, LoggerInterface $logger)
-    {
-        $client = new Client();
-        $params = [
-            'from' => $from_currency,
-            'to' => $to_currency,
-            'quantity' => floatval($quantity),
-            'api_key' => 'EQSnBJo9GkXJRdzzoWGAjxD2b7RwUtsS'
-        ];
 
-        $logger->info('params', $params);
-
-        $endpoint = 'https://forex.1forge.com/1.0.3/convert';
-        $url_endpoint = $endpoint . '?' . http_build_query($params);
-
-        $logger->info("api call url", [$url_endpoint]);
-
-        $res = $client->request('GET', $url_endpoint);
-        $data = $res->getBody();
-        $data_array = json_decode($data, true);
-
-        $logger->info('response from api', $data_array);
-
-
-        return $data_array;
-    }
 
 }
