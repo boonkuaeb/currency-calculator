@@ -45,4 +45,6 @@ Create anathor file at 'config/packages/bk_fx_rate.yml'
       endpoints : https://forex.1forge.com/1.0.3/convert
       api_key : EQSnBJo9GkXJRdzzoWGAjxD2b7RwUtsS
       
-Go ! !
+
+
+Let try to calculate currency rate again.
