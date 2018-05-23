@@ -5,7 +5,7 @@ Applications that use Symfony Flex
 ----------------------------------
 Uses git command to clone the source code.
 
-    $ git@github.com:boonkuaeb/currency-calculator.git
+    $ git clone git@github.com:boonkuaeb/currency-calculator.git
 
 'cd' to directory
 
