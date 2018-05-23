@@ -32,14 +32,14 @@ Install FxRateBundle
     
     
     
-Create 'config/routes/bk_fx_rate.yml' file. A File contain as below
+Create 'config/routes/bk_fx_rate.yaml' file. A File contain as below
 
     _bk_fx_rate:
         resource: '@BKFxRateBundle/Resources/config/routes.xml'
         prefix: /api/fxrate/
 
     
-Create anathor file at 'config/packages/bk_fx_rate.yml'
+Create anathor file at 'config/packages/bk_fx_rate.yaml'
 
     bk_fx_rate :
       endpoints : https://forex.1forge.com/1.0.3/convert
