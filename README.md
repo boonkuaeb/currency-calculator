@@ -22,7 +22,7 @@ Try to start the Application.
     $ php -S 127.0.0.1:8000 -t public 
 
 
-Open browser and go to url 'http://localhost:8000/'
+Open browser and go to url 'http://127.0.0.1:8000/'
 As you can see. The Application can not calculate currency rate.
 Because we need to install Symfony Bundle
 
